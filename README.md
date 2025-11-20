@@ -16,6 +16,13 @@ Convert Python files to Jupyter notebooks with automatic import organization and
 
 **Installation:**
 
+Option 1 - Add the entire marketplace:
+```bash
+# Add this repository as a skill marketplace in Claude Code settings
+https://github.com/zotko/claude-skills
+```
+
+Option 2 - Install individual skill:
 ```bash
 # Download and install the skill
 curl -L https://github.com/zotko/claude-skills/raw/main/py-to-notebook.skill -o ~/.claude/skills/py-to-notebook.skill
@@ -33,11 +40,21 @@ Simply ask Claude to convert Python files:
 - "Turn my analysis.py into a .ipynb file"
 - "Make a notebook from this Python file"
 
+## Adding as a Marketplace
+
+To add this repository as a skill marketplace in Claude Code:
+
+1. Open Claude Code settings
+2. Navigate to the Skills/Marketplaces section
+3. Add the marketplace URL: `https://github.com/zotko/claude-skills`
+4. Browse and install skills directly from Claude Code
+
 ## Repository Structure
 
 ```
 claude-skills/
 ├── README.md                    # This file
+├── marketplace.json             # Marketplace configuration
 ├── py-to-notebook/              # Skill source files
 │   ├── SKILL.md                 # Skill definition and instructions
 │   └── scripts/
