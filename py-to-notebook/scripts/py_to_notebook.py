@@ -59,12 +59,18 @@ def create_notebook(cells: List[str]) -> dict:
     notebook_cells = []
 
     for cell_content in cells:
+        # Split into lines and add newline chars (except for last line)
+        lines = cell_content.split('\n')
+        source_lines = [line + '\n' for line in lines[:-1]]
+        if lines:
+            source_lines.append(lines[-1])  # Last line without \n
+
         notebook_cells.append({
             "cell_type": "code",
             "execution_count": None,
             "metadata": {},
             "outputs": [],
-            "source": cell_content.split('\n')
+            "source": source_lines
         })
 
     notebook = {
