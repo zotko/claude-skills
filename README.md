@@ -18,7 +18,7 @@ Convert Python files to Jupyter notebooks with automatic import organization and
 
 ```bash
 # Download and install the skill
-curl -L https://github.com/YOUR_USERNAME/claude-skills/raw/main/py-to-notebook.skill -o ~/.claude/skills/py-to-notebook.skill
+curl -L https://github.com/zotko/claude-skills/raw/main/py-to-notebook.skill -o ~/.claude/skills/py-to-notebook.skill
 ```
 
 Or manually:
