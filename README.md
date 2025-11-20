@@ -54,7 +54,8 @@ To add this repository as a skill marketplace in Claude Code:
 ```
 claude-skills/
 ├── README.md                    # This file
-├── marketplace.json             # Marketplace configuration
+├── .claude-plugin/
+│   └── marketplace.json         # Marketplace configuration
 ├── py-to-notebook/              # Skill source files
 │   ├── SKILL.md                 # Skill definition and instructions
 │   └── scripts/
