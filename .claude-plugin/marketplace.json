@@ -2,9 +2,9 @@
   "name": "zotko-skills",
   "displayName": "Zotko's Claude Skills",
   "description": "Custom skills for Claude Code that extend its capabilities with specialized workflows and tools",
-  "author": "zotko",
+  "owner": "zotko",
   "repository": "https://github.com/zotko/claude-skills",
-  "skills": [
+  "plugins": [
     {
       "name": "py-to-notebook",
       "displayName": "Python to Jupyter Notebook",
