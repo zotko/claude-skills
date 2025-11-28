@@ -9,12 +9,12 @@
   },
   "plugins": [
     {
-      "name": "py-to-notebook",
-      "description": "Convert Python (.py) files to Jupyter notebooks (.ipynb) with automatic import organization and cell splitting",
+      "name": "notebook-reader",
+      "description": "Read Jupyter notebooks efficiently with options to filter by cell type and exclude outputs to minimize token usage",
       "source": "./",
       "strict": false,
       "skills": [
-        "./py-to-notebook"
+        "./notebook-reader"
       ]
     }
   ]

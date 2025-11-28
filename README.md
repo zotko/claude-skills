@@ -4,79 +4,71 @@ Custom skills for Claude Code that extend its capabilities with specialized work
 
 ## Available Skills
 
-### py-to-notebook
+### notebook-reader
 
-Convert Python files to Jupyter notebooks with automatic import organization and cell splitting.
+Read Jupyter notebooks efficiently with options to filter by cell type and exclude outputs to minimize token usage.
 
 **Features:**
-- Splits code into cells using `# %%` markers
-- Automatically organizes all imports into the first cell
+- Read only code cells or markdown cells
+- Exclude outputs to reduce token usage
+- Read specific cell ranges
+- Get notebook summary without full content
 - Pure Python standard library - no external dependencies
-- Handles single or multiple file conversions
-
-**Installation:**
-
-Option 1 - Add the entire marketplace:
-```bash
-# Add this repository as a skill marketplace in Claude Code settings
-https://github.com/zotko/claude-skills
-```
-
-Option 2 - Install individual skill:
-```bash
-# Download and install the skill
-curl -L https://github.com/zotko/claude-skills/raw/main/py-to-notebook.skill -o ~/.claude/skills/py-to-notebook.skill
-```
-
-Or manually:
-1. Download [py-to-notebook.skill](py-to-notebook.skill)
-2. Copy to `~/.claude/skills/`
-3. Restart Claude Code
 
 **Usage:**
 
-Simply ask Claude to convert Python files:
-- "Convert script.py to a Jupyter notebook"
-- "Turn my analysis.py into a .ipynb file"
-- "Make a notebook from this Python file"
+```bash
+python scripts/read_notebook.py <notebook.ipynb> [options]
+```
 
-## Adding as a Marketplace
+Options:
+- `--code-only` - Show only code cells
+- `--markdown-only` - Show only markdown cells
+- `--no-outputs` - Exclude cell outputs
+- `--cell-range N M` - Read cells N to M (0-indexed)
+- `--summary` - Show notebook summary only
 
-To add this repository as a skill marketplace in Claude Code:
+Examples:
+```bash
+# Get notebook overview
+python scripts/read_notebook.py notebook.ipynb --summary
 
-1. Open Claude Code settings
-2. Navigate to the Skills/Marketplaces section
-3. Add the marketplace URL: `https://github.com/zotko/claude-skills`
-4. Browse and install skills directly from Claude Code
+# Read code cells without outputs (minimal tokens)
+python scripts/read_notebook.py notebook.ipynb --code-only --no-outputs
+
+# Read first 5 cells
+python scripts/read_notebook.py notebook.ipynb --cell-range 0 4
+```
+
+## Installation
+
+Add this repository as a plugin in Claude Code:
+
+```
+https://github.com/zotko/claude-skills
+```
 
 ## Repository Structure
 
 ```
 claude-skills/
-├── README.md                    # This file
+├── README.md
 ├── .claude-plugin/
-│   └── marketplace.json         # Marketplace configuration
-├── py-to-notebook/              # Skill source files
-│   ├── SKILL.md                 # Skill definition and instructions
-│   └── scripts/
-│       └── py_to_notebook.py    # Conversion script
-└── py-to-notebook.skill         # Packaged skill (ready to install)
+│   └── marketplace.json
+└── notebook-reader/
+    ├── SKILL.md
+    └── scripts/
+        └── read_notebook.py
 ```
 
 ## Creating Your Own Skills
 
-This repository follows the official Claude Code skill structure. Each skill contains:
+Each skill contains:
 
-- **SKILL.md**: Defines the skill with YAML frontmatter (name, description) and markdown instructions
-- **scripts/**: Executable code for deterministic operations
-- **references/**: Documentation loaded into context as needed
-- **assets/**: Files used in outputs (templates, images, etc.)
-
-Skills are packaged into `.skill` files (ZIP archives) for distribution.
-
-## Contributing
-
-Feel free to submit issues or pull requests to improve existing skills or add new ones.
+- **SKILL.md** - Skill definition with YAML frontmatter (name, description) and instructions
+- **scripts/** - Executable code for deterministic operations
+- **references/** - Documentation loaded into context as needed
+- **assets/** - Files used in outputs (templates, images, etc.)
 
 ## License
 
