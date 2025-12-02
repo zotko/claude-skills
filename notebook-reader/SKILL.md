@@ -1,6 +1,6 @@
 ---
 name: notebook-reader
-description: Read Jupyter notebooks efficiently with options to filter by cell type and exclude outputs to minimize token usage
+description: "Efficiently read Jupyter notebooks (.ipynb) with minimal token usage. When Claude needs to read notebooks that exceed token limits, filter by cell type (code/markdown only), exclude outputs, or read specific cell ranges."
 ---
 
 # Notebook Reader

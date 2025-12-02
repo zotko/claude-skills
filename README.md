@@ -6,7 +6,7 @@ Custom skills for Claude Code that extend its capabilities with specialized work
 
 ### notebook-reader
 
-Read Jupyter notebooks efficiently with options to filter by cell type and exclude outputs to minimize token usage.
+Efficiently read Jupyter notebooks (.ipynb) with minimal token usage. When Claude needs to read notebooks that exceed token limits, filter by cell type (code/markdown only), exclude outputs, or read specific cell ranges.
 
 **Features:**
 - Read only code cells or markdown cells
